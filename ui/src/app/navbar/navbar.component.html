@@ -1,0 +1,23 @@
+<div class="nav-bar">
+    <div class="menu">
+        <div class="logo">
+            <a href="/home"
+                ><h1><b>PS</b></h1></a
+            >
+        </div>
+        <ul>
+            <li *ngFor="let link of displayedLinks">
+                <button
+                    mat-stroked-button
+                    [routerLink]="link.href"
+                    color="primary"
+                >
+                    {{ link.label }}
+                </button>
+            </li>
+            <button *ngIf="isLoggedIn" mat-stroked-button (click)="logout()" color="primary">
+                Logout
+            </button>
+        </ul>
+    </div>
+</div>

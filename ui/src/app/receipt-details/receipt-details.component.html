@@ -1,0 +1,36 @@
+<mat-list role="list" *ngIf="receiptDetails.length">
+    <mat-list-item role="listitem"
+        >Date: {{ receiptDetails[0].date | date:'long' }}</mat-list-item
+    >
+    <mat-list-item role="listitem"
+        >Address: {{ receiptDetails[0].address }}</mat-list-item
+    >
+    <mat-list-item role="listitem"
+        >City: {{ receiptDetails[0].city }}</mat-list-item
+    >
+    <mat-list-item role="listitem"
+        >ZIP: {{ receiptDetails[0].zip }}</mat-list-item
+    >
+</mat-list>
+
+<table mat-table [dataSource]="receiptDetails" class="mat-elevation-z8" *ngIf="receiptDetails.length">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+        <th mat-header-cell *matHeaderCellDef>Quantity</th>
+        <td mat-cell *matCellDef="let element">{{ element.amount }}</td>
+    </ng-container>
+    <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef>Total</th>
+        <td mat-cell *matCellDef="let element">{{ element.total }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>

@@ -1,0 +1,68 @@
+<h2>Cart</h2>
+<table mat-table [dataSource]="cart" class="mat-elevation-z8" *ngIf="cart.length">
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="desc">
+        <th mat-header-cell *matHeaderCellDef>Description</th>
+        <td mat-cell *matCellDef="let element">{{ element.desc }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef>Price per unit</th>
+        <td mat-cell *matCellDef="let element">{{ element.price }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="qty">
+        <th mat-header-cell *matHeaderCellDef>Quantity</th>
+        <td mat-cell *matCellDef="let element">{{ element.qty }}</td>
+    </ng-container>
+    <ng-container matColumnDef="qty-price">
+        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <td mat-cell *matCellDef="let element">{{ element.qtyPrice }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cart">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let element">
+            <button mat-raised-button (click)="removeProduct(element.id)">Remove from cart</button>
+        </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+</table>
+<p *ngIf="!cart.length">Your cart it empty</p>
+
+
+<h2>Checkout</h2>
+<form [formGroup]="checkOutForm" (ngSubmit)="checkout()" class="form">
+    <mat-form-field>
+        <input
+            matInput
+            mat-form-f
+            formControlName="address"
+            placeholder="Address"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <input
+            matInput
+            mat-form-f
+            formControlName="city"
+            placeholder="City"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <input
+            matInput
+            mat-form-f
+            formControlName="zip"
+            placeholder="Zip"
+        />
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" color="primary">Checkout</button>
+</form>

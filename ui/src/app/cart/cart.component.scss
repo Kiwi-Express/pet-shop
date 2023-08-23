@@ -1,0 +1,11 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    gap: 20px;
+  }
+  mat-form-field{
+    width: 1000px;
+  }

@@ -1,0 +1,50 @@
+<h2>Create new account</h2>
+<form [formGroup]="createAccForm" class="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+        <input
+            matInput
+            mat-form-f
+            formControlName="firstName"
+            placeholder="Name"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <input
+            matInput
+            mat-form-f
+            formControlName="lastName"
+            placeholder="Last Name"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <input
+            matInput
+            mat-form-f
+            type="email"
+            formControlName="email"
+            placeholder="E Mail"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <input
+            matInput
+            mat-form-f
+            type="password"
+            formControlName="password"
+            placeholder="Password"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <input
+            matInput
+            mat-form-f
+            type="password"
+            formControlName="confirmPassword"
+            placeholder="Confirm Password"
+        />
+    </mat-form-field>
+
+    <button mat-raised-button type="submit" color="primary">
+        Create Account
+    </button>
+</form>

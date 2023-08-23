@@ -1,0 +1,38 @@
+<h2>Create new product</h2>
+<form [formGroup]="newProductForm" (ngSubmit)="onSubmit()" class="form">
+    <mat-form-field>
+        <input matInput mat-form-f formControlName="name" placeholder="Name" />
+    </mat-form-field>
+    <mat-form-field>
+        <input
+            matInput
+            mat-form-f
+            formControlName="desc"
+            placeholder="Description"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <input
+            matInput
+            mat-form-f
+            type="number"
+            formControlName="price"
+            placeholder="Price"
+        />
+    </mat-form-field>
+    <mat-form-field>
+        <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+                <mat-option
+                    *ngFor="let category of categories"
+                    [value]="category.id"
+                >
+                    {{ category.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="primary">Submit</button>
+    <button mat-raised-button *ngIf="idExists()" color="primary" (click)="deleteProduct()">Delete Product</button>
+</form>

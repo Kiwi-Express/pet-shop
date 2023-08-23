@@ -1,0 +1,22 @@
+.everything {
+  display: flex;
+}
+
+.hero {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.wrapper {
+  display: flex;
+  margin: 50px auto;
+}
+
+.content {
+  width: 1400px;
+}
+.content h1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
