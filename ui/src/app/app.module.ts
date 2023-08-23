@@ -33,7 +33,6 @@ import { PurchasesComponent } from './purchases/purchases.component'
 import { PurchaseService } from './purchases/purchase.service'
 import { ReceiptDetailsComponent } from './receipt-details/receipt-details.component'
 import { CreateCategoryComponent } from './create-category/create-category.component'
-import { MatPaginatorModule } from '@angular/material/paginator'
 import { InterceptorService } from './interceptor.service'
 
 @NgModule({
@@ -67,7 +66,6 @@ import { InterceptorService } from './interceptor.service'
         MatButtonToggleModule,
         MatTableModule,
         MatListModule,
-        MatPaginatorModule,
     ],
     providers: [
         LoginService,
